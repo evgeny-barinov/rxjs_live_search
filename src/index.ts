@@ -20,7 +20,7 @@ const sequence1$: Observable<IGithubUrl[]> = sequence$.pipe(
         return (event.target as HTMLInputElement).value;
     }),
     distinctUntilChanged(),
-    switchMap((value: string): any => {
+    switchMap((value: string): IGithubResponse => {
 
         return from(
             fetch(`https://api.github.com/search/repositories?q=${value}`)
